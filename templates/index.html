@@ -1,0 +1,93 @@
+<html>
+<head>
+</head>
+<title> Stock Prediction</title>
+
+<style>
+    body {
+        background-color: rgb(73, 123, 189);
+    }
+
+    .login { 
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	margin: -150px 0 0 -150px;
+	width:400px;
+	height:400px;
+    }
+
+    button {
+        color: rgb(255, 255, 255);
+        background-color:rgb(250, 178, 24);
+        font-size: 18px;
+        width: 250px;
+        height: 40px;
+        padding: 7px 10px;
+        border-radius: 15px;
+        border: 2px solid black;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bold;
+
+    }
+    button:hover {
+        background-color: rgb(250, 178, 24);
+        color: black;
+        cursor: pointer;
+    }
+    h1 {
+        color: white;
+        text-align: center;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-style: oblique;
+        font-size: 50px;
+        margin-top: 3%;
+    }
+    input {
+        width: 25%;
+        height: 5%;
+        padding: 10px 10px;
+        font-size: 18px;
+    }
+    h3 {
+        color: black;
+        font-size: 20px;
+        margin-top: 90px;
+        width: 220px;
+
+        }
+</style>
+
+
+<body>
+
+    <h1> STOCK PREDICTION </h1>
+
+<div class="login">
+
+    <div>
+<form method="post" action="{{ url_for('predict') }}">
+    <br><br>
+
+    <label for="cars">Choose a stock:</label>
+
+<select name="stock" id="stock">
+  <option value="AAPL">AAPL</option>
+  <option value="ADP">ADP</option>
+  <option value="CSCO">CSCO</option>
+  <option value="CBOE">CBOE</option>
+    <option value="EBAY">EBAY</option>
+</select>
+
+    <br><br><br>
+    <label for="days">Number of days to forecast :</label>  <input type="text" name="No of days to forecast"  required="required" /><br><br><br>
+
+
+    <label for="forecast">Click to Forecast :</label> <button type="submit"> Forecast  </button>
+</form>
+
+<h3> {{ prediction_text }} </h3>
+</div>
+</div>
+</body>
+</html>
